@@ -1,6 +1,12 @@
-[gd_scene load_steps=2 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://Scripts/KeystrokeChangeScene.gd" type="Script" id=1]
+[ext_resource path="res://Art/Fonts/PixelFont.ttf" type="DynamicFontData" id=2]
+[ext_resource path="res://Themes/PixelTheme.tres" type="Theme" id=3]
+
+[sub_resource type="DynamicFont" id=1]
+size = 80
+font_data = ExtResource( 2 )
 
 [node name="Control" type="Control"]
 anchor_right = 1.0
@@ -10,12 +16,76 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Label" type="Label" parent="."]
-margin_left = 420.0
-margin_top = 86.0
-margin_right = 532.0
-margin_bottom = 154.0
-text = "CREDITS MENU"
+[node name="CreditsLabel" type="Label" parent="."]
+margin_left = 660.0
+margin_top = 58.0
+margin_right = 1040.0
+margin_bottom = 138.0
+theme = ExtResource( 3 )
+custom_fonts/font = SubResource( 1 )
+text = "CREDITS"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="DaxxLabel" type="Label" parent="."]
+margin_left = 110.0
+margin_top = 212.0
+margin_right = 985.0
+margin_bottom = 292.0
+theme = ExtResource( 3 )
+custom_fonts/font = SubResource( 1 )
+text = "Daxx - Code and Lead"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="JammegLabel" type="Label" parent="."]
+margin_left = 157.0
+margin_top = 745.0
+margin_right = 687.0
+margin_bottom = 825.0
+theme = ExtResource( 3 )
+custom_fonts/font = SubResource( 1 )
+text = "Jammeg - Art"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="R_DaveLabel" type="Label" parent="."]
+margin_left = 598.0
+margin_top = 482.0
+margin_right = 1248.0
+margin_bottom = 562.0
+theme = ExtResource( 3 )
+custom_fonts/font = SubResource( 1 )
+text = "R_Dave - Design"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="DrDubzLabel" type="Label" parent="."]
+margin_left = 1185.0
+margin_top = 217.0
+margin_right = 1755.0
+margin_bottom = 297.0
+rect_pivot_offset = Vector2( 161, 80 )
+theme = ExtResource( 3 )
+custom_fonts/font = SubResource( 1 )
+text = "DrDubz - Code"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="KingRammaLabel" type="Label" parent="."]
+margin_left = 998.0
+margin_top = 733.0
+margin_right = 1698.0
+margin_bottom = 813.0
+rect_pivot_offset = Vector2( 161, 80 )
+theme = ExtResource( 3 )
+custom_fonts/font = SubResource( 1 )
+text = "King Ramma - Art"
 __meta__ = {
 "_edit_use_anchors_": false
 }
