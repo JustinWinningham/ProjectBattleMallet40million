@@ -1,22 +1,89 @@
-[gd_scene load_steps=2 format=2]
+[gd_scene load_steps=3 format=2]
 
 [ext_resource path="res://Scripts/QuitGame.gd" type="Script" id=1]
+[ext_resource path="res://Scripts/ButtonChangeScene.gd" type="Script" id=2]
 
 [node name="Control" type="Control"]
 anchor_right = 1.0
 anchor_bottom = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="Label" type="Label" parent="."]
-margin_left = 782.0
-margin_top = 202.0
-margin_right = 928.0
-margin_bottom = 275.0
+margin_left = 523.0
+margin_top = 88.0
+margin_right = 669.0
+margin_bottom = 161.0
 text = "MAIN MENU!"
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
-[node name="Button" type="Button" parent="."]
-margin_left = 732.0
-margin_top = 646.0
-margin_right = 1080.0
-margin_bottom = 730.0
+[node name="CampaignButton" type="Button" parent="."]
+margin_left = 800.0
+margin_top = 219.0
+margin_right = 1056.0
+margin_bottom = 287.0
+text = "CAMPAIGN"
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+scenePath = "res://Scenes/Menus/CampaignMenu.tscn"
+
+[node name="SkirmishButton" type="Button" parent="."]
+margin_left = 793.0
+margin_top = 310.0
+margin_right = 1049.0
+margin_bottom = 378.0
+text = "SKIRMISH"
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+scenePath = "res://Scenes/Menus/SkirmishMenu.tscn"
+
+[node name="CodexButton" type="Button" parent="."]
+margin_left = 790.0
+margin_top = 410.0
+margin_right = 1046.0
+margin_bottom = 478.0
+text = "CODEX"
+script = ExtResource( 2 )
+scenePath = "res://Scenes/Menus/CodexMenu.tscn"
+
+[node name="SettingsButton" type="Button" parent="."]
+margin_left = 805.0
+margin_top = 500.0
+margin_right = 1061.0
+margin_bottom = 568.0
+text = "SETTINGS"
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+scenePath = "res://Scenes/Menus/SettingsMenu.tscn"
+
+[node name="CreditsButton" type="Button" parent="."]
+margin_left = 818.0
+margin_top = 590.0
+margin_right = 1074.0
+margin_bottom = 658.0
+text = "CREDITS"
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+scenePath = "res://Scenes/Menus/CreditsMenu.tscn"
+
+[node name="QuitButton" type="Button" parent="."]
+margin_left = 757.0
+margin_top = 685.0
+margin_right = 1105.0
+margin_bottom = 769.0
 text = "QUIT"
 script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
