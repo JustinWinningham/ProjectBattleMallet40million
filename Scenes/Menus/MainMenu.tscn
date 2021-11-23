@@ -1,0 +1,22 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://Scripts/QuitGame.gd" type="Script" id=1]
+
+[node name="Control" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="Label" type="Label" parent="."]
+margin_left = 782.0
+margin_top = 202.0
+margin_right = 928.0
+margin_bottom = 275.0
+text = "MAIN MENU!"
+
+[node name="Button" type="Button" parent="."]
+margin_left = 732.0
+margin_top = 646.0
+margin_right = 1080.0
+margin_bottom = 730.0
+text = "QUIT"
+script = ExtResource( 1 )
