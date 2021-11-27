@@ -1,0 +1,8 @@
+{
+  "mapName": "TestMap",
+  "author": "Daxx",
+  "mapX": 5,
+  "mapY": 5,
+  "tileset": "debug",
+  "description": "This is a testing map!"
+}
