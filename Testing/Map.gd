@@ -9,6 +9,7 @@ var mapSizeY
 var tilesetName
 var mapDataDict = {}
 
+var tileSet = 'res://Testing/PlaceholderTileSet.tres'
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -29,12 +30,12 @@ func _ready():
 	file.close()
 	mapName = mapDataDict["mapName"]
 	mapAuthor = mapDataDict["author"]
-	self.owner.get_node("DebugLabel").set_text(mapName + " by " + mapAuthor)
+	self.get_node("DebugLabel").set_text(mapName + " by " + mapAuthor)
 	
 	file.open(mapPath + "/terrainData.csv", file.READ)
 	text = file.get_as_text()
 	file.close()
-	# TODO: This approach is going to be a problem if we want more than 10 tiles (0-9)
+	# TODO: Make more expandable. This approach is going to be a problem if we want more than 10 tile types
 	var newtext = text.replace(',','')
 	print_debug(newtext)
 	var row = []
@@ -51,13 +52,10 @@ func _ready():
 	mapSizeY = terrainData[1].size()
 	print_debug(mapSizeX)
 	print_debug(mapSizeY)
-
-	# TODO:
-	# create a child tilemap on the map scene
-	# figure out how to 'pick' what map tileset we want
-	# call tilemap.set_cell(...) to render the cells
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-#func _process(delta):
-	# Play tile specific animations, if any.
-#	pass
+	
+	$TileMap.tile_set = load('res://Testing/PlaceholderTileSet.tres')
+	$TileMap.tile_set.tile_set_tile_mode(2,TileSet.ATLAS_TILE)
+	
+	for i in mapSizeX:
+		for j in mapSizeY:
+			$TileMap.set_cell(i+2, j+2, int(terrainData[j][i]) - 1) # formatting adjustment 1 vs 0 start

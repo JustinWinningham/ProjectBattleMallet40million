@@ -11,6 +11,7 @@ margin_top = -1.0
 margin_bottom = -1.0
 script = ExtResource( 3 )
 __meta__ = {
+"_edit_lock_": true,
 "_edit_use_anchors_": false
 }
 
@@ -19,11 +20,17 @@ modulate = Color( 0, 0, 0, 1 )
 position = Vector2( 956.628, 547.798 )
 scale = Vector2( 34.1743, 19.5574 )
 texture = ExtResource( 2 )
+__meta__ = {
+"_edit_lock_": true
+}
 
 [node name="Sprite" type="Sprite" parent="."]
 position = Vector2( 960, 540 )
 rotation = 3.14159
 texture = ExtResource( 1 )
+__meta__ = {
+"_edit_lock_": true
+}
 
 [node name="Tween" type="Tween" parent="."]
 
@@ -34,6 +41,7 @@ margin_right = 1897.39
 margin_bottom = 31.0794
 text = "Escape to Skip"
 __meta__ = {
+"_edit_lock_": true,
 "_edit_use_anchors_": false
 }
 
@@ -44,6 +52,7 @@ margin_right = 540.167
 margin_bottom = 129.458
 text = "Team logo will go here!"
 __meta__ = {
+"_edit_lock_": true,
 "_edit_use_anchors_": false
 }
 
