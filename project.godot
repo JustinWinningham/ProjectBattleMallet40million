@@ -17,6 +17,7 @@ config/icon="res://Art/icon.png"
 [autoload]
 
 GLOBAL="*res://Globals/GLOBAL.gd"
+MAPCUSTODIAN="*res://Globals/MAPCUSTODIAN.gd"
 
 [display]
 

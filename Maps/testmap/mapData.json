@@ -1,8 +1,6 @@
 {
   "mapName": "TestMap",
   "author": "Daxx",
-  "mapX": 5,
-  "mapY": 5,
-  "tileset": "debug",
+  "tileset": "PlaceholderTileSet.tres",
   "description": "This is a testing map!"
 }

@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=2]
 
-[ext_resource path="res://Testing/PlaceholderTileSet.tres" type="TileSet" id=1]
+[ext_resource path="res://TileSets/PlaceholderTileSet.tres" type="TileSet" id=1]
 
 [node name="PlaceholderMap" type="Node2D"]
 
