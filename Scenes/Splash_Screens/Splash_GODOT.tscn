@@ -9,6 +9,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 script = ExtResource( 3 )
 __meta__ = {
+"_edit_lock_": true,
 "_edit_use_anchors_": false
 }
 nextScene = "res://Scenes/Splash_Screens/Splash_TEAM.tscn"
@@ -18,10 +19,16 @@ modulate = Color( 0, 0, 0, 1 )
 position = Vector2( 947.987, 537.169 )
 scale = Vector2( 36.0908, 20.2466 )
 texture = ExtResource( 2 )
+__meta__ = {
+"_edit_lock_": true
+}
 
 [node name="Sprite" type="Sprite" parent="."]
 position = Vector2( 960, 540 )
 texture = ExtResource( 1 )
+__meta__ = {
+"_edit_lock_": true
+}
 
 [node name="Tween" type="Tween" parent="."]
 
@@ -32,5 +39,6 @@ margin_right = 1889.02
 margin_bottom = 32.9865
 text = "Escape to Skip"
 __meta__ = {
+"_edit_lock_": true,
 "_edit_use_anchors_": false
 }

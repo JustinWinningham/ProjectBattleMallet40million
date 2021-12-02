@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=2]
+[gd_scene load_steps=3 format=2]
 
 [ext_resource path="res://Scripts/KeystrokeChangeScene.gd" type="Script" id=1]
+[ext_resource path="res://Scripts/ButtonChangeScene.gd" type="Script" id=2]
 
 [node name="Control" type="Control"]
 anchor_right = 1.0
@@ -19,3 +20,12 @@ text = "SKIRMISH MENU"
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="testbutton" type="Button" parent="."]
+margin_left = 999.0
+margin_top = 367.0
+margin_right = 1329.0
+margin_bottom = 486.0
+text = "click to enter skirmish"
+script = ExtResource( 2 )
+scenePath = "res://Scenes/SkirmishScene.tscn"
