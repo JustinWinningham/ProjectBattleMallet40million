@@ -28,4 +28,4 @@ margin_right = 1329.0
 margin_bottom = 486.0
 text = "click to enter skirmish"
 script = ExtResource( 2 )
-scenePath = "res://Testing/SkirmishScene.tscn"
+scenePath = "res://Scenes/SkirmishScene.tscn"
