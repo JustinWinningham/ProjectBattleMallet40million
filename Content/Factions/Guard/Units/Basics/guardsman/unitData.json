@@ -4,12 +4,12 @@
   "cost": 100,
   "tags": ["Infantry", "Cowardly"],
   "other": false,
-  "validWeapons": ['lasrifle', 'melta'],
-  "validEquipment": ['basicArmor'],
+  "validWeapons": ["lasrifle", "melta"],
+  "validEquipment": ["basicArmor"],
   "validOthers": [],
-  "defaultWeapons": ['lasrifle'],
-  "defaultEquipment": ['basicArmor'],
+  "defaultWeapons": ["lasrifle"],
+  "defaultEquipment": ["basicArmor"],
   "defaultOthers": [],
-  "abilities": ['suicideCharge'],
+  "abilities": ["suicideCharge"],
   "magics": []
 }

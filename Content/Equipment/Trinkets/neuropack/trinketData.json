@@ -1,5 +1,5 @@
 {
-  "equipmentId": servoskull,
+  "equipmentId": "servoskull",
   "equipmentName": "Servo Skull",
   "description": "a helpful servo skull - useful for scouting",
   "cost": 50
