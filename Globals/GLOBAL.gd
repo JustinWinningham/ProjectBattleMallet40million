@@ -15,3 +15,14 @@ func parseJSON(file):
 		print_debug("Error Line: ", result_json.error_line)
 		print_debug("Error String: ", result_json.error_string)
 		return null
+
+func reloadDirectory(path, destinationArray):
+	var theDir = Directory.new()
+	theDir.open(path)
+	theDir.list_dir_begin()
+	while true:
+		var folder = theDir.get_next()
+		if folder == "":
+			break
+		elif not folder.begins_with("."):
+			destinationArray.append(folder)

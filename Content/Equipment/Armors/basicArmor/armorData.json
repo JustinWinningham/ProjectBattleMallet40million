@@ -1,0 +1,9 @@
+{
+  "equipmentId": basicArmor,
+  "equipmentName": "Basic Armor",
+  "description": "A basic set of imperial guardsman armor - standard issue to all guardsman of the imperium",
+  "cost": 50,
+  "protectionThermal": 1,
+  "protectionKenetic": 1,
+  "protectionChemical": 0
+}

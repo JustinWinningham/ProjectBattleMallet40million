@@ -1,0 +1,13 @@
+{
+  "unitName": "Commisar Jarik",
+  "description": "A badass",
+  "cost": 500,
+  "tags": ["Infantry", "Hero"],
+  "other": false,
+  "validWeapons": ['laspistol', 'lasrifle', 'melta', 'sabre'],
+  "validEquipment": ['basicArmor'],
+  "defaultWeapons": ['laspistol'],
+  "defaultEquipment": ['basicArmor'],
+  "abilities": ['rally'],
+  "magics": []
+}

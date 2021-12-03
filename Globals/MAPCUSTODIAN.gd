@@ -1,14 +1,19 @@
+# This script handles loading maps from files and storing them for game access
 extends Node
 
-# This script handles loading maps from files and storing them for game access
 var mapPathArray = []
 var _curMapIdx = 0
 var masterMapArray = []
-export var mapsPath = 'res://Maps/'
+export var mapsPath = 'res://Content/Maps/'
 
 
 func _ready():
 	reloadMaps()
+
+
+func reloadMaps():
+	mapPathArray = []
+	GLOBAL.reloadDirectory(mapsPath, mapPathArray)
 	var mapCode = validateMaps()
 	if mapCode == '0':
 		pass
@@ -16,18 +21,6 @@ func _ready():
 		print_debug(mapCode)
 		get_tree().quit()
 
-
-func reloadMaps():
-	mapPathArray = []
-	var mapDirectory = Directory.new()
-	mapDirectory.open(mapsPath)
-	mapDirectory.list_dir_begin()
-	while true:
-		var folder = mapDirectory.get_next()
-		if folder == "":
-			break
-		elif not folder.begins_with("."):
-			mapPathArray.append(folder)
 
 func validateMaps():
 	var fileChecker = File.new()
@@ -69,7 +62,6 @@ func validateTerrainData(filepath):
 
 func validateUnitData(filepath):
 	return '0'
-
 
 #GETTERS
 
