@@ -1,17 +1,30 @@
 # This is a class object script for Units - generally contained within a Faction object
+class_name Unit
 
 var id
 var name
+var author = ""
+var description = ""
+var unitDataDict = {}
 # TODO: May be better to store this as a bunch of booleans for efficency so we dont have to
 # search and entire array multiple times per interaction between two units to interaction checking
 # and damage calculation
 var unitTags = [] # Fill with Enums (Infantry, Armor, Transport, Aircraft, Hero, etc)
-var moveSet = []
-var equipment = []
+var validWeapons = []
+var validEquipment = []
+var validOthers = []
 
-# Stat block - placeholder stats for now just to get things working
-var defense
-var offense
+var defaultWeapons = []
+var defaultEquipment = []
+var defaultOthers = []
+
+var abilities = []
+var magics = []
+# Stat block - placeholder stats for now just to get things working (with default values)
+var cost = 0
+var defense = 1
+var offense = 1
+var speed = 1
 # TODO: Think about how we want store stats at the data layer
 # need second pass on design to be more exact
 
@@ -21,7 +34,30 @@ var sideWalkFrames = []
 var upWalkFrames = []
 var downWalkFrames = []
 
+var isValid = true
 
 
-func _init():
-	pass
+
+func _init(path):
+	var file = File.new()
+	file.open(path + "/unitData.json", file.READ)
+	self.unitDataDict = GLOBAL.parseJSON(file)
+	file.close()
+	self.id = unitDataDict["unitName"]
+	self.name = unitDataDict["unitId"]
+	self.author = unitDataDict["author"]
+	self.description = unitDataDict["description"]
+	self.unitTags = unitDataDict["tags"]
+	
+	self.cost = unitDataDict["cost"]
+	self.speed = unitDataDict["speed"]
+	
+	# TEMP FOR TESTING
+	self.offense = 1
+	self.defense = 2
+	
+	print_debug("created a regular unit!")
+	print_debug(path)
+
+func isValid():
+	return self.isValid

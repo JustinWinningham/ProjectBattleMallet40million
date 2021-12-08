@@ -3,8 +3,10 @@ extends Node
 
 var factionPathArray = []
 var factionArray = []
+
 export var factionPath = 'res://Content/Factions/'
 
+var currentFaction
 
 func _ready():
 	reloadFactions()
@@ -12,14 +14,17 @@ func _ready():
 
 func reloadFactions():
 	factionArray = []
-	GLOBAL.reloadDirectory(factionPath, factionPathArray)
-	var factionCode = validateFactions()
-	if factionCode == '0':
-		pass
+	GLOBAL.reloadDirectoryFolders(factionPath, factionPathArray)
+	if (validateAndLoadFactions() == 0):
+		print_debug("All factions loaded")
 	else:
-		print_debug(factionCode)
-		get_tree().quit()
+		print_debug("Problem loading factions")
 
 
-func validateFactions():
-	return '0'
+func validateAndLoadFactions():
+	for f in factionPathArray:
+		var currentFaction = Faction.new(factionPath + f)
+		if currentFaction.isValid():
+			factionArray.push_back(currentFaction)
+			currentFaction = null
+	return 0
