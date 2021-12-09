@@ -14,7 +14,7 @@ func _ready():
 func reloadMaps():
 	mapPathArray = []
 	GLOBAL.reloadDirectory(mapsPath, mapPathArray)
-	var mapCode = validateMaps()
+	var mapCode = validateAndLoadMaps()
 	if mapCode == '0':
 		pass
 	else:
@@ -22,7 +22,7 @@ func reloadMaps():
 		get_tree().quit()
 
 
-func validateMaps():
+func validateAndLoadMaps():
 	var fileChecker = File.new()
 	for d in mapPathArray:
 		var mapDataPath = mapsPath + d + '/mapData.json'
@@ -48,7 +48,7 @@ func validateMaps():
 		# At this point we have validated all of the data within the files
 		# So we can officially load the map into the master map array for use
 		if errors == '0':
-			var goodMap = load('res://Scripts/Objects/Map.gd').new(mapsPath + d)
+			var goodMap = Map.new(mapsPath + d)
 			masterMapArray.append(goodMap)
 		return errors
 

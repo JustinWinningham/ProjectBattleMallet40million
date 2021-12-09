@@ -10,7 +10,8 @@ func parseJSON(file):
 		var data = result_json.result
 		return data
 	else:
-		print_debug("Failed to parse JSON", file.filename)
+		# There is a bug in this else block - need to investigate
+		print_debug("Failed to parse JSON", result_json.filename)
 		print_debug("Error: ", result_json.error)
 		print_debug("Error Line: ", result_json.error_line)
 		print_debug("Error String: ", result_json.error_string)
@@ -26,3 +27,40 @@ func reloadDirectory(path, destinationArray):
 			break
 		elif not folder.begins_with("."):
 			destinationArray.append(folder)
+
+
+func reloadDirectoryFolders(path, destinationArray):
+	var theDir = Directory.new()
+	if theDir.open(path) == OK:
+		theDir.list_dir_begin(true, false)
+		var file_name = theDir.get_next()
+		while file_name != "":
+			if theDir.current_is_dir():
+				print("Found directory: " + file_name)
+				destinationArray.push_back(file_name)
+			else:
+				print("Found file: " + file_name)
+			file_name = theDir.get_next()
+			return OK
+	else:
+		print_debug("Unable to open desired directory: " + path)
+		return !OK
+
+
+func reloadDirectoryFiles(path, destinationArray):
+	var theDir = Directory.new()
+	if theDir.open(path) == OK:
+		theDir.list_dir_begin(true, false)
+		var file_name = theDir.get_next()
+		while file_name != "":
+			if theDir.current_is_dir():
+				print("Found directory: " + file_name)
+				
+			else:
+				print("Found file: " + file_name)
+				destinationArray.push_back(file_name)
+			file_name = theDir.get_next()
+			return OK
+	else:
+		print_debug("Unable to open desired directory: " + path)
+		return !OK

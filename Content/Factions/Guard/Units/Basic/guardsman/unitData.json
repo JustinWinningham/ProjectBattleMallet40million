@@ -1,9 +1,11 @@
 {
+  "unitId": "guardsman",
   "unitName": "Guardsman",
+  "author": "Daxx",
   "description": "A standard gaurdsman of the astra militarum",
   "cost": 100,
   "tags": ["Infantry", "Cowardly"],
-  "other": false,
+  "speed": 4,
   "validWeapons": ["lasrifle", "melta"],
   "validEquipment": ["basicArmor"],
   "validOthers": [],

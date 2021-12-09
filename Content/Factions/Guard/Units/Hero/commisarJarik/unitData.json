@@ -1,9 +1,11 @@
 {
+  "unitId": "hero_commisar_jarik",
   "unitName": "Commisar Jarik",
   "description": "A badass",
+  "author": "Daxx",
   "cost": 500,
   "tags": ["Infantry", "Hero"],
-  "other": false,
+  "speed": 2,
   "validWeapons": ["laspistol", "lasrifle", "melta", "sabre"],
   "validEquipment": ["basicArmor"],
   "defaultWeapons": ["laspistol"],

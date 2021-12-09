@@ -1,4 +1,6 @@
 # This is a class for maps and all data related to them - namely terrain
+class_name Map
+
 var mapPath
 var terrainData = []
 var mapName
