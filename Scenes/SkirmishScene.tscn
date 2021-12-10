@@ -17,3 +17,5 @@ __meta__ = {
 cell_size = Vector2( 128, 128 )
 cell_tile_origin = 1
 format = 1
+
+[node name="TurnController" type="Node2D" parent="."]
