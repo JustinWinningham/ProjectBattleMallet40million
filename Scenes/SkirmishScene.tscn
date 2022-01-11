@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=2]
+[gd_scene load_steps=3 format=2]
 
 [ext_resource path="res://Scripts/MapBuilder.gd" type="Script" id=1]
+[ext_resource path="res://Scripts/GameController.gd" type="Script" id=2]
 
 [node name="MapController" type="Node2D"]
 script = ExtResource( 1 )
@@ -18,4 +19,27 @@ cell_size = Vector2( 128, 128 )
 cell_tile_origin = 1
 format = 1
 
-[node name="TurnController" type="Node2D" parent="."]
+[node name="GameController" type="Node2D" parent="."]
+script = ExtResource( 2 )
+
+[node name="DEBUG_ET_Button" type="Button" parent="GameController"]
+margin_left = 1014.0
+margin_top = 126.0
+margin_right = 1316.0
+margin_bottom = 222.0
+text = "End Turn"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="DEBUG_GC_Label" type="Label" parent="GameController"]
+margin_left = 1035.0
+margin_top = 280.0
+margin_right = 1226.0
+margin_bottom = 369.0
+text = "DEBUG BOX"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[connection signal="pressed" from="GameController/DEBUG_ET_Button" to="GameController" method="_on_DEBUG_ET_Button_pressed"]

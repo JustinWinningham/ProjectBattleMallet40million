@@ -36,6 +36,10 @@ var downWalkFrames = []
 
 var isValid = true
 
+# Turn level options
+var moved = false
+var acted = false
+
 
 
 func _init(path):
@@ -61,3 +65,21 @@ func _init(path):
 
 func isValid():
 	return self.isValid
+
+func hasActed():
+	return moved
+
+func hasMoved():
+	return acted
+
+func move():
+	if hasMoved():
+		return
+	# Insert movement logic here
+	moved = true
+
+func act():
+	if hasActed():
+		return
+	# Insert action logic here
+	acted = true

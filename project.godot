@@ -25,6 +25,11 @@ _global_script_classes=[ {
 "path": "res://Scripts/Objects/Map.gd"
 }, {
 "base": "Reference",
+"class": "Turn",
+"language": "GDScript",
+"path": "res://Scripts/Objects/Turn.gd"
+}, {
+"base": "Reference",
 "class": "Unit",
 "language": "GDScript",
 "path": "res://Scripts/Objects/Unit.gd"
@@ -33,6 +38,7 @@ _global_script_class_icons={
 "Faction": "",
 "Hero": "",
 "Map": "",
+"Turn": "",
 "Unit": ""
 }
 
@@ -47,6 +53,7 @@ config/icon="res://Art/icon.png"
 GLOBAL="*res://Globals/GLOBAL.gd"
 MAPCUSTODIAN="*res://Globals/MAPCUSTODIAN.gd"
 FACTIONCUSTODIAN="*res://Globals/FACTIONCUSTODIAN.gd"
+DATACUSTODIAN="*res://Globals/DATACUSTODIAN.gd"
 
 [display]
 
