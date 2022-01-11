@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/SkirmishMenuMockv1.drawio (1).png-bfca9d671dd20c7762ad6770899fa87a.stex"
+path="res://.import/green_arrow.png-efe5bc272f1ce0a913675faabb5f74e5.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://planning documents/SkirmishMenuMockv1.drawio (1).png"
-dest_files=[ "res://.import/SkirmishMenuMockv1.drawio (1).png-bfca9d671dd20c7762ad6770899fa87a.stex" ]
+source_file="res://Art/Placeholders/green_arrow.png"
+dest_files=[ "res://.import/green_arrow.png-efe5bc272f1ce0a913675faabb5f74e5.stex" ]
 
 [params]
 
