@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=2]
+[gd_scene load_steps=15 format=2]
 
 [ext_resource path="res://Scripts/KeystrokeChangeScene.gd" type="Script" id=1]
 [ext_resource path="res://Scripts/ButtonChangeScene.gd" type="Script" id=2]
@@ -12,6 +12,8 @@
 [ext_resource path="res://Art/Placeholders/player_shape_blue.png" type="Texture" id=10]
 [ext_resource path="res://Art/Placeholders/green_arrow_flipped.png" type="Texture" id=11]
 [ext_resource path="res://Art/Placeholders/player_shape_green.png" type="Texture" id=12]
+[ext_resource path="res://Scripts/SkirmishMenu/SkirmishPlanetDisplay.gd" type="Script" id=13]
+[ext_resource path="res://Scripts/SkirmishMenu/SkirmishFactionUnitDisplay.gd" type="Script" id=14]
 
 [node name="Control" type="Control"]
 anchor_right = 1.0
@@ -51,19 +53,23 @@ __meta__ = {
 scenePath = "res://Scenes/SkirmishScene.tscn"
 
 [node name="Cadian" type="Sprite" parent="."]
-position = Vector2( 216, 480 )
-scale = Vector2( 1.55784, 1.75274 )
+position = Vector2( 224, 512 )
+scale = Vector2( 1.59204, 1.86861 )
 texture = ExtResource( 3 )
+script = ExtResource( 14 )
 
 [node name="Cadia" type="Sprite" parent="."]
 position = Vector2( 896, 560 )
 scale = Vector2( 1.588, 1.634 )
 texture = ExtResource( 4 )
+script = ExtResource( 13 )
 
 [node name="Khorneguy" type="Sprite" parent="."]
-position = Vector2( 1640, 500 )
-scale = Vector2( 1.77273, 1.60526 )
+position = Vector2( 1632, 514 )
+scale = Vector2( 1.45455, 1.67105 )
 texture = ExtResource( 5 )
+flip_h = true
+script = ExtResource( 14 )
 
 [node name="player 1 faction name" type="Label" parent="."]
 margin_left = 96.0
