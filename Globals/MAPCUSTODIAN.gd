@@ -48,7 +48,7 @@ func validateAndLoadMaps():
 		# At this point we have validated all of the data within the files
 		# So we can officially load the map into the master map array for use
 		if errors == '0':
-			var goodMap = Map.new(mapsPath + d)
+			var goodMap = load("res://Scripts/Objects/Map.gd").new(mapsPath + d)
 			masterMapArray.append(goodMap)
 		return errors
 

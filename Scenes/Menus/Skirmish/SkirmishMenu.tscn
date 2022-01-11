@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=2]
+[gd_scene load_steps=17 format=2]
 
 [ext_resource path="res://Scripts/KeystrokeChangeScene.gd" type="Script" id=1]
 [ext_resource path="res://Scripts/ButtonChangeScene.gd" type="Script" id=2]
@@ -14,6 +14,8 @@
 [ext_resource path="res://Art/Placeholders/player_shape_green.png" type="Texture" id=12]
 [ext_resource path="res://Scripts/SkirmishMenu/SkirmishPlanetDisplay.gd" type="Script" id=13]
 [ext_resource path="res://Scripts/SkirmishMenu/SkirmishFactionUnitDisplay.gd" type="Script" id=14]
+[ext_resource path="res://Scripts/SkirmishMenu/SkirmishFactionIcon.gd" type="Script" id=15]
+[ext_resource path="res://Scripts/SkirmishMenu/FactionNameLabelScript.gd" type="Script" id=16]
 
 [node name="Control" type="Control"]
 anchor_right = 1.0
@@ -42,8 +44,8 @@ __meta__ = {
 [node name="load skirmish button" type="Button" parent="."]
 margin_left = 64.0
 margin_top = 132.0
-margin_right = 335.0
-margin_bottom = 185.0
+margin_right = 384.0
+margin_bottom = 192.0
 rect_pivot_offset = Vector2( 584, 220 )
 text = "Load Ongoing Skirmish"
 script = ExtResource( 2 )
@@ -59,8 +61,8 @@ texture = ExtResource( 3 )
 script = ExtResource( 14 )
 
 [node name="Cadia" type="Sprite" parent="."]
-position = Vector2( 896, 560 )
-scale = Vector2( 1.588, 1.634 )
+position = Vector2( 928, 512 )
+scale = Vector2( 1.92, 1.792 )
 texture = ExtResource( 4 )
 script = ExtResource( 13 )
 
@@ -72,20 +74,21 @@ flip_h = true
 script = ExtResource( 14 )
 
 [node name="player 1 faction name" type="Label" parent="."]
-margin_left = 96.0
-margin_top = 808.0
-margin_right = 296.0
-margin_bottom = 880.0
+margin_left = 168.0
+margin_top = 800.0
+margin_right = 368.0
+margin_bottom = 872.0
 rect_pivot_offset = Vector2( 136, 48 )
 text = "Astra Militarum"
+script = ExtResource( 16 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="player 2 faction name" type="Label" parent="."]
-margin_left = 1496.0
-margin_top = 808.0
-margin_right = 1630.0
+margin_left = 1568.0
+margin_top = 800.0
+margin_right = 1702.0
 margin_bottom = 822.0
 text = "World Eaters Chapter"
 __meta__ = {
@@ -93,22 +96,27 @@ __meta__ = {
 }
 
 [node name="Faction1IconPlaceholder" type="Sprite" parent="."]
-position = Vector2( 216, 928 )
+position = Vector2( 223.25, 896.5 )
+scale = Vector2( 0.803797, 0.729885 )
 texture = ExtResource( 6 )
+script = ExtResource( 15 )
 
 [node name="Faction2IconPlaceholder" type="Sprite" parent="."]
-position = Vector2( 1624, 944 )
+position = Vector2( 1632.75, 896.5 )
+scale = Vector2( 0.803797, 0.729885 )
 texture = ExtResource( 7 )
 
 [node name="skirmish confirm button" type="Button" parent="."]
-margin_left = 776.0
+margin_left = 768.0
 margin_top = 936.0
-margin_right = 1024.0
-margin_bottom = 1004.0
+margin_right = 1088.0
+margin_bottom = 1000.0
 text = "Start Skirmish"
+script = ExtResource( 2 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
+scenePath = "res://Scenes/SkirmishScene.tscn"
 
 [node name="selection parent" type="Control" parent="."]
 margin_left = 1448.0

@@ -1,7 +1,12 @@
 extends Sprite
 
-# TODO: each map object should have an art instance to use here
 
+# Declare member variables here. Examples:
+# var a = 2
+# var b = "text"
+
+
+# Called when the node enters the scene tree for the first time.
 func _ready():
 	pass # Replace with function body.
 
