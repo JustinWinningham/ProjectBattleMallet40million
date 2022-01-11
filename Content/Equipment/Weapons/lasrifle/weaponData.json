@@ -1,0 +1,8 @@
+{
+  "equipmentId": "lasrifle",
+  "equipmentName": "Lasrifle",
+  "description": "A basic imperial lasrifle - standard issue to all guardsman of the imperium",
+  "cost": 50,
+  "damage": [2, 2, 1],
+  "penetration": [0, 0, 0],
+}

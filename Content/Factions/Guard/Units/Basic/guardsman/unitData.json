@@ -1,0 +1,17 @@
+{
+  "unitId": "guardsman",
+  "unitName": "Guardsman",
+  "author": "Daxx",
+  "description": "A standard gaurdsman of the astra militarum",
+  "cost": 100,
+  "tags": ["Infantry", "Cowardly"],
+  "speed": 4,
+  "validWeapons": ["lasrifle", "melta"],
+  "validEquipment": ["basicArmor"],
+  "validOthers": [],
+  "defaultWeapons": ["lasrifle"],
+  "defaultEquipment": ["basicArmor"],
+  "defaultOthers": [],
+  "abilities": ["suicideCharge"],
+  "magics": []
+}

@@ -1,15 +1,20 @@
+# This script handles loading maps from files and storing them for game access
 extends Node
 
-# This script handles loading maps from files and storing them for game access
 var mapPathArray = []
 var _curMapIdx = 0
 var masterMapArray = []
-export var mapsPath = 'res://Maps/'
+export var mapsPath = 'res://Content/Maps/'
 
 
 func _ready():
 	reloadMaps()
-	var mapCode = validateMaps()
+
+
+func reloadMaps():
+	mapPathArray = []
+	GLOBAL.reloadDirectory(mapsPath, mapPathArray)
+	var mapCode = validateAndLoadMaps()
 	if mapCode == '0':
 		pass
 	else:
@@ -17,19 +22,7 @@ func _ready():
 		get_tree().quit()
 
 
-func reloadMaps():
-	mapPathArray = []
-	var mapDirectory = Directory.new()
-	mapDirectory.open(mapsPath)
-	mapDirectory.list_dir_begin()
-	while true:
-		var folder = mapDirectory.get_next()
-		if folder == "":
-			break
-		elif not folder.begins_with("."):
-			mapPathArray.append(folder)
-
-func validateMaps():
+func validateAndLoadMaps():
 	var fileChecker = File.new()
 	for d in mapPathArray:
 		var mapDataPath = mapsPath + d + '/mapData.json'
@@ -55,7 +48,7 @@ func validateMaps():
 		# At this point we have validated all of the data within the files
 		# So we can officially load the map into the master map array for use
 		if errors == '0':
-			var goodMap = load('res://Scripts/Objects/Map.gd').new(mapsPath + d)
+			var goodMap = Map.new(mapsPath + d)
 			masterMapArray.append(goodMap)
 		return errors
 
@@ -69,7 +62,6 @@ func validateTerrainData(filepath):
 
 func validateUnitData(filepath):
 	return '0'
-
 
 #GETTERS
 
