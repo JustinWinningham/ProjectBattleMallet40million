@@ -1,6 +1,6 @@
 [gd_scene load_steps=17 format=2]
 
-[ext_resource path="res://Scripts/KeystrokeChangeScene.gd" type="Script" id=1]
+[ext_resource path="res://SkirmishMenuController.gd" type="Script" id=1]
 [ext_resource path="res://Scripts/ButtonChangeScene.gd" type="Script" id=2]
 [ext_resource path="res://Art/Placeholders/cadian.png" type="Texture" id=3]
 [ext_resource path="res://Art/Placeholders/cadia.png" type="Texture" id=4]
@@ -17,7 +17,7 @@
 [ext_resource path="res://Scripts/SkirmishMenu/SkirmishFactionIcon.gd" type="Script" id=15]
 [ext_resource path="res://Scripts/SkirmishMenu/FactionNameLabelScript.gd" type="Script" id=16]
 
-[node name="Control" type="Control"]
+[node name="SkirmishMenuController" type="Control"]
 anchor_right = 1.0
 anchor_bottom = 1.0
 script = ExtResource( 1 )
@@ -164,11 +164,15 @@ __meta__ = {
 }
 
 [node name="map name label" type="Label" parent="selection parent/map select parent"]
-margin_left = 144.0
+margin_left = 72.0
 margin_top = 32.0
-margin_right = 244.0
+margin_right = 312.0
 margin_bottom = 46.0
 text = "Unbroken Cadia"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="team 1 select parent" type="Control" parent="selection parent"]
 margin_top = 64.0
@@ -208,11 +212,15 @@ __meta__ = {
 }
 
 [node name="player 1 faction label" type="Label" parent="selection parent/team 1 select parent"]
-margin_left = 144.0
+margin_left = 72.0
 margin_top = 32.0
-margin_right = 244.0
+margin_right = 312.0
 margin_bottom = 46.0
 text = "Astra Militarum"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="team 2 select parent" type="Control" parent="selection parent"]
 margin_top = 128.0
@@ -252,11 +260,12 @@ __meta__ = {
 }
 
 [node name="player 2 faction label" type="Label" parent="selection parent/team 2 select parent"]
-margin_left = 88.0
+margin_left = 72.0
 margin_top = 32.0
-margin_right = 307.0
+margin_right = 312.0
 margin_bottom = 46.0
 text = "World Eaters Chaos Space Marines"
+align = 1
 __meta__ = {
 "_edit_use_anchors_": false
 }
