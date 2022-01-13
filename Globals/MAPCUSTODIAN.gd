@@ -15,10 +15,9 @@ func reloadMaps():
 	mapPathArray = []
 	GLOBAL.reloadDirectory(mapsPath, mapPathArray)
 	var mapCode = validateAndLoadMaps()
-	if mapCode == '0':
-		pass
-	else:
-		print_debug(mapCode)
+	
+	if mapCode != '0':
+		print_debug("error map code: " + str(mapCode))
 		get_tree().quit()
 
 
@@ -39,19 +38,28 @@ func validateAndLoadMaps():
 		#fileChecker.open(mapDataPath)
 		var errors = validateMapData(mapDataPath)
 		if errors != '0':
+			print_debug("validateMapData error" + str(errors))
 			return errors
 		errors = validateTerrainData(terrainDataPath)
+		
 		if errors != '0':
+			print_debug("validateTerrainData error" + str(errors))
 			return errors
+			
 		errors = validateUnitData(unitDataPath)
 		
 		# At this point we have validated all of the data within the files
 		# So we can officially load the map into the master map array for use
 		if errors == '0':
-			var goodMap = load("res://Scripts/Objects/Map.gd").new(mapsPath + d)
+			var goodMap = Map.new(mapsPath + d)
 			masterMapArray.append(goodMap)
-		return errors
-
+		else:
+			print_debug("returning errors" + str(errors))
+			return errors
+			
+	# TODO: not return character codes and instead return null for no error and
+	# descriptive codes or Error object instances
+	return '0' 
 
 # TODO: Actually validate the data - we are just pretending right now and dealing with the crash
 func validateMapData(filepath):

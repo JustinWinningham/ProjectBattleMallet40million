@@ -16,6 +16,41 @@ func _ready():
 	_setPlayer1FactionText()
 	_setPlayer2FactionText()
 	
+	_bindButton("selection parent/map select parent/map left button", "_mapSelectLeftPressed")
+	_bindButton("selection parent/map select parent/map right button", "_mapSelectRightPressed")
+	_bindButton("selection parent/team 1 select parent/player 1 faction left button", "_player1FactionLeftPressed")
+	_bindButton("selection parent/team 1 select parent/player 1 faction right button", "_player1FactionRightPressed")
+	_bindButton("selection parent/team 2 select parent/player 2 faction left button", "_player2FactionLeftPressed")
+	_bindButton("selection parent/team 2 select parent/player 2 faction right button", "_player2FactionRightPressed")
+
+
+func _bindButton(path: NodePath, functionName):
+	get_node(path).connect("pressed", self, functionName)
+
+func _mapSelectLeftPressed():
+	mapSelectionIndex = max(mapSelectionIndex - 1, 0) 
+	_setMapLabelText()
+	
+func _mapSelectRightPressed():
+	mapSelectionIndex = min(mapSelectionIndex + 1, MAPCUSTODIAN.masterMapArray.size() - 1) 
+	_setMapLabelText()
+
+func _player1FactionLeftPressed():
+	player1FactionIndex = max(player1FactionIndex - 1, 0) 
+	_setPlayer1FactionText()
+	
+func _player2FactionLeftPressed():
+	player2FactionIndex = max(player2FactionIndex - 1, 0) 
+	_setPlayer2FactionText()
+	
+func _player1FactionRightPressed():
+	player1FactionIndex = min(player1FactionIndex + 1, FACTIONCUSTODIAN.factionArray.size() - 1) 
+	_setPlayer1FactionText()
+	
+func _player2FactionRightPressed():
+	player2FactionIndex = min(player2FactionIndex + 1, FACTIONCUSTODIAN.factionArray.size() - 1) 
+	_setPlayer2FactionText()
+	
 func _setMapLabelText():
 	
 	var mapNameNode = get_node("selection parent/map select parent/map name label")
