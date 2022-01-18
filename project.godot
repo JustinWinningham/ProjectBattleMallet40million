@@ -41,6 +41,7 @@ config/icon="res://Art/icon.png"
 GLOBAL="*res://Globals/GLOBAL.gd"
 MAPCUSTODIAN="*res://Globals/MAPCUSTODIAN.gd"
 FACTIONCUSTODIAN="*res://Globals/FACTIONCUSTODIAN.gd"
+SKIRMISHCUSTODIAN="*res://Globals/SKIRMISHCUSTODIAN.gd"
 
 [display]
 

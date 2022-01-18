@@ -1,17 +1,9 @@
 extends "res://Scripts/KeystrokeChangeScene.gd"
 
-# the map that's currently selected out of the list
-var mapSelectionIndex = 0
-
-var player1FactionIndex = 0
-var player2FactionIndex = 0
-
 var _mapNameText = "{mapName} ({index}/{mapCount})"
 var _factionText = "{factionName} ({index}/{factionCount})"
 
 func _ready():
-	# TODO: randomize the map and factions? or make sure the previous selections
-	# are preserved
 	_setMapLabelText()
 	_setPlayer1FactionText()
 	_setPlayer2FactionText()
@@ -28,27 +20,27 @@ func _bindButton(path: NodePath, functionName):
 	get_node(path).connect("pressed", self, functionName)
 
 func _mapSelectLeftPressed():
-	mapSelectionIndex = max(mapSelectionIndex - 1, 0) 
+	SKIRMISHCUSTODIAN.mapSelectionIndex = max(SKIRMISHCUSTODIAN.mapSelectionIndex - 1, 0) 
 	_setMapLabelText()
 	
 func _mapSelectRightPressed():
-	mapSelectionIndex = min(mapSelectionIndex + 1, MAPCUSTODIAN.masterMapArray.size() - 1) 
+	SKIRMISHCUSTODIAN.mapSelectionIndex = min(SKIRMISHCUSTODIAN.mapSelectionIndex + 1, MAPCUSTODIAN.masterMapArray.size() - 1) 
 	_setMapLabelText()
 
 func _player1FactionLeftPressed():
-	player1FactionIndex = max(player1FactionIndex - 1, 0) 
+	SKIRMISHCUSTODIAN.player1FactionIndex = max(SKIRMISHCUSTODIAN.player1FactionIndex - 1, 0) 
 	_setPlayer1FactionText()
 	
 func _player2FactionLeftPressed():
-	player2FactionIndex = max(player2FactionIndex - 1, 0) 
+	SKIRMISHCUSTODIAN.player2FactionIndex = max(SKIRMISHCUSTODIAN.player2FactionIndex - 1, 0) 
 	_setPlayer2FactionText()
 	
 func _player1FactionRightPressed():
-	player1FactionIndex = min(player1FactionIndex + 1, FACTIONCUSTODIAN.factionArray.size() - 1) 
+	SKIRMISHCUSTODIAN.player1FactionIndex = min(SKIRMISHCUSTODIAN.player1FactionIndex + 1, FACTIONCUSTODIAN.factionArray.size() - 1) 
 	_setPlayer1FactionText()
 	
 func _player2FactionRightPressed():
-	player2FactionIndex = min(player2FactionIndex + 1, FACTIONCUSTODIAN.factionArray.size() - 1) 
+	SKIRMISHCUSTODIAN.player2FactionIndex = min(SKIRMISHCUSTODIAN.player2FactionIndex + 1, FACTIONCUSTODIAN.factionArray.size() - 1) 
 	_setPlayer2FactionText()
 	
 func _setMapLabelText():
@@ -56,8 +48,8 @@ func _setMapLabelText():
 	var mapNameNode = get_node("selection parent/map select parent/map name label")
 
 	mapNameNode.text = _mapNameText.format({
-		"mapName": MAPCUSTODIAN.masterMapArray[mapSelectionIndex].mapName,
-		"index": mapSelectionIndex + 1,
+		"mapName": MAPCUSTODIAN.masterMapArray[SKIRMISHCUSTODIAN.mapSelectionIndex].mapName,
+		"index": SKIRMISHCUSTODIAN.mapSelectionIndex + 1,
 		"mapCount": MAPCUSTODIAN.masterMapArray.size()
 	})
 	
@@ -66,8 +58,8 @@ func _setPlayer1FactionText():
 	var factionNode = get_node("selection parent/team 1 select parent/player 1 faction label")
 
 	factionNode.text = _factionText.format({
-		"factionName": FACTIONCUSTODIAN.factionArray[player1FactionIndex].factionName,
-		"index": player1FactionIndex + 1,
+		"factionName": FACTIONCUSTODIAN.factionArray[SKIRMISHCUSTODIAN.player1FactionIndex].factionName,
+		"index": SKIRMISHCUSTODIAN.player1FactionIndex + 1,
 		"factionCount": FACTIONCUSTODIAN.factionArray.size()
 	})
 	
@@ -76,8 +68,8 @@ func _setPlayer2FactionText():
 	var factionNode = get_node("selection parent/team 2 select parent/player 2 faction label")
 	
 	factionNode.text = _factionText.format({
-		"factionName": FACTIONCUSTODIAN.factionArray[player2FactionIndex].factionName,
-		"index": player2FactionIndex + 1,
+		"factionName": FACTIONCUSTODIAN.factionArray[SKIRMISHCUSTODIAN.player2FactionIndex].factionName,
+		"index": SKIRMISHCUSTODIAN.player2FactionIndex + 1,
 		"factionCount": FACTIONCUSTODIAN.factionArray.size()
 	})
 

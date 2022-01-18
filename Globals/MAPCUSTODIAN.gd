@@ -70,23 +70,3 @@ func validateTerrainData(filepath):
 
 func validateUnitData(filepath):
 	return '0'
-
-#GETTERS
-
-func getMapSizeX():
-	return masterMapArray[_curMapIdx].mapSizeX
-
-func getMapSizeY():
-	return masterMapArray[_curMapIdx].mapSizeY
-
-func getTerrainData(x, y):
-	return masterMapArray[_curMapIdx].terrainData[x][y]
-
-func getTileSet():
-	return masterMapArray[_curMapIdx].tileSet
-
-func getMapName():
-	return masterMapArray[_curMapIdx].mapName
-
-func getMapAuthor():
-	return masterMapArray[_curMapIdx].mapAuthor
