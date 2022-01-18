@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/SkirmishMenuMockv1.drawio (1).png-bfca9d671dd20c7762ad6770899fa87a.stex"
+path="res://.import/player_shape_blue.png-4efb8edb583140d7d9db7b840040d0b8.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://planning documents/SkirmishMenuMockv1.drawio (1).png"
-dest_files=[ "res://.import/SkirmishMenuMockv1.drawio (1).png-bfca9d671dd20c7762ad6770899fa87a.stex" ]
+source_file="res://Art/Placeholders/player_shape_blue.png"
+dest_files=[ "res://.import/player_shape_blue.png-4efb8edb583140d7d9db7b840040d0b8.stex" ]
 
 [params]
 

@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/SkirmishMenuMockv1.drawio (1).png-bfca9d671dd20c7762ad6770899fa87a.stex"
+path="res://.import/cadian.png-7a8155c3fef57b905fd38139ea43bfc5.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://planning documents/SkirmishMenuMockv1.drawio (1).png"
-dest_files=[ "res://.import/SkirmishMenuMockv1.drawio (1).png-bfca9d671dd20c7762ad6770899fa87a.stex" ]
+source_file="res://Art/Placeholders/cadian.png"
+dest_files=[ "res://.import/cadian.png-7a8155c3fef57b905fd38139ea43bfc5.stex" ]
 
 [params]
 

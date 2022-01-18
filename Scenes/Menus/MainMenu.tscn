@@ -46,7 +46,7 @@ script = ExtResource( 2 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
-scenePath = "res://Scenes/Menus/SkirmishMenu.tscn"
+scenePath = "res://Scenes/Menus/Skirmish/SkirmishMenu.tscn"
 
 [node name="CodexButton" type="Button" parent="."]
 margin_left = 790.0

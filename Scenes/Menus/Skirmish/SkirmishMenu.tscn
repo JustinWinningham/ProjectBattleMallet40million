@@ -1,0 +1,271 @@
+[gd_scene load_steps=17 format=2]
+
+[ext_resource path="res://SkirmishMenuController.gd" type="Script" id=1]
+[ext_resource path="res://Scripts/ButtonChangeScene.gd" type="Script" id=2]
+[ext_resource path="res://Art/Placeholders/cadian.png" type="Texture" id=3]
+[ext_resource path="res://Art/Placeholders/cadia.png" type="Texture" id=4]
+[ext_resource path="res://Art/Placeholders/khorneguy.png" type="Texture" id=5]
+[ext_resource path="res://Art/Placeholders/faction_1_icon_placeholder.png" type="Texture" id=6]
+[ext_resource path="res://Art/Placeholders/faction_2_icon_placeholder.png" type="Texture" id=7]
+[ext_resource path="res://Art/Placeholders/space.png" type="Texture" id=8]
+[ext_resource path="res://Art/Placeholders/green_arrow.png" type="Texture" id=9]
+[ext_resource path="res://Art/Placeholders/player_shape_blue.png" type="Texture" id=10]
+[ext_resource path="res://Art/Placeholders/green_arrow_flipped.png" type="Texture" id=11]
+[ext_resource path="res://Art/Placeholders/player_shape_green.png" type="Texture" id=12]
+[ext_resource path="res://Scripts/SkirmishMenu/SkirmishPlanetDisplay.gd" type="Script" id=13]
+[ext_resource path="res://Scripts/SkirmishMenu/SkirmishFactionUnitDisplay.gd" type="Script" id=14]
+[ext_resource path="res://Scripts/SkirmishMenu/SkirmishFactionIcon.gd" type="Script" id=15]
+[ext_resource path="res://Scripts/SkirmishMenu/FactionNameLabelScript.gd" type="Script" id=16]
+
+[node name="SkirmishMenuController" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Space" type="Sprite" parent="."]
+scale = Vector2( 2, 2.09231 )
+texture = ExtResource( 8 )
+centered = false
+
+[node name="Label" type="Label" parent="."]
+margin_left = 82.0
+margin_top = 62.0
+margin_right = 309.0
+margin_bottom = 109.0
+text = "Skirmish - Select map and teams
+"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="load skirmish button" type="Button" parent="."]
+margin_left = 64.0
+margin_top = 132.0
+margin_right = 384.0
+margin_bottom = 192.0
+rect_pivot_offset = Vector2( 584, 220 )
+text = "Load Ongoing Skirmish"
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+scenePath = "res://Scenes/SkirmishScene.tscn"
+
+[node name="Cadian" type="Sprite" parent="."]
+position = Vector2( 224, 512 )
+scale = Vector2( 1.59204, 1.86861 )
+texture = ExtResource( 3 )
+script = ExtResource( 14 )
+
+[node name="Cadia" type="Sprite" parent="."]
+position = Vector2( 928, 512 )
+scale = Vector2( 1.92, 1.792 )
+texture = ExtResource( 4 )
+script = ExtResource( 13 )
+
+[node name="Khorneguy" type="Sprite" parent="."]
+position = Vector2( 1632, 514 )
+scale = Vector2( 1.45455, 1.67105 )
+texture = ExtResource( 5 )
+flip_h = true
+script = ExtResource( 14 )
+
+[node name="player 1 faction name" type="Label" parent="."]
+margin_left = 168.0
+margin_top = 800.0
+margin_right = 368.0
+margin_bottom = 872.0
+rect_pivot_offset = Vector2( 136, 48 )
+text = "Astra Militarum"
+script = ExtResource( 16 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="player 2 faction name" type="Label" parent="."]
+margin_left = 1568.0
+margin_top = 800.0
+margin_right = 1702.0
+margin_bottom = 822.0
+text = "World Eaters Chapter"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Faction1IconPlaceholder" type="Sprite" parent="."]
+position = Vector2( 223.25, 896.5 )
+scale = Vector2( 0.803797, 0.729885 )
+texture = ExtResource( 6 )
+script = ExtResource( 15 )
+
+[node name="Faction2IconPlaceholder" type="Sprite" parent="."]
+position = Vector2( 1632.75, 896.5 )
+scale = Vector2( 0.803797, 0.729885 )
+texture = ExtResource( 7 )
+
+[node name="skirmish confirm button" type="Button" parent="."]
+margin_left = 768.0
+margin_top = 936.0
+margin_right = 1088.0
+margin_bottom = 1000.0
+text = "Start Skirmish"
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+scenePath = "res://Scenes/SkirmishScene.tscn"
+
+[node name="selection parent" type="Control" parent="."]
+margin_left = 1448.0
+margin_top = 40.0
+margin_right = 1832.0
+margin_bottom = 224.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="map select parent" type="Control" parent="selection parent"]
+margin_right = 40.0
+margin_bottom = 40.0
+rect_pivot_offset = Vector2( -336, 168 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="PlayerShapeBlue" type="Sprite" parent="selection parent/map select parent"]
+position = Vector2( 192, 40 )
+texture = ExtResource( 10 )
+
+[node name="map left button" type="Button" parent="selection parent/map select parent"]
+anchor_right = 0.031
+anchor_bottom = 0.13
+margin_left = -16.0
+margin_top = 8.0
+margin_right = 44.76
+margin_bottom = 58.8
+icon = ExtResource( 9 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="map right button" type="Button" parent="selection parent/map select parent"]
+anchor_right = 0.031
+anchor_bottom = 0.13
+margin_left = 336.0
+margin_top = 8.0
+margin_right = 396.76
+margin_bottom = 58.8
+icon = ExtResource( 11 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="map name label" type="Label" parent="selection parent/map select parent"]
+margin_left = 72.0
+margin_top = 32.0
+margin_right = 312.0
+margin_bottom = 46.0
+text = "Unbroken Cadia"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="team 1 select parent" type="Control" parent="selection parent"]
+margin_top = 64.0
+margin_right = 40.0
+margin_bottom = 104.0
+rect_pivot_offset = Vector2( -336, 168 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="PlayerShapeBlue" type="Sprite" parent="selection parent/team 1 select parent"]
+position = Vector2( 192, 40 )
+texture = ExtResource( 12 )
+
+[node name="player 1 faction left button" type="Button" parent="selection parent/team 1 select parent"]
+anchor_right = 0.031
+anchor_bottom = 0.13
+margin_left = -16.0
+margin_top = 8.0
+margin_right = 44.76
+margin_bottom = 58.8
+icon = ExtResource( 9 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="player 1 faction right button" type="Button" parent="selection parent/team 1 select parent"]
+anchor_right = 0.031
+anchor_bottom = 0.13
+margin_left = 336.0
+margin_top = 8.0
+margin_right = 396.76
+margin_bottom = 58.8
+icon = ExtResource( 11 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="player 1 faction label" type="Label" parent="selection parent/team 1 select parent"]
+margin_left = 72.0
+margin_top = 32.0
+margin_right = 312.0
+margin_bottom = 46.0
+text = "Astra Militarum"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="team 2 select parent" type="Control" parent="selection parent"]
+margin_top = 128.0
+margin_right = 40.0
+margin_bottom = 168.0
+rect_pivot_offset = Vector2( -336, 168 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="PlayerShapeBlue" type="Sprite" parent="selection parent/team 2 select parent"]
+position = Vector2( 192, 40 )
+texture = ExtResource( 12 )
+
+[node name="player 2 faction left button" type="Button" parent="selection parent/team 2 select parent"]
+anchor_right = 0.031
+anchor_bottom = 0.13
+margin_left = -16.0
+margin_top = 8.0
+margin_right = 44.76
+margin_bottom = 58.8
+icon = ExtResource( 9 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="player 2 faction right button" type="Button" parent="selection parent/team 2 select parent"]
+anchor_right = 0.031
+anchor_bottom = 0.13
+margin_left = 336.0
+margin_top = 8.0
+margin_right = 396.76
+margin_bottom = 58.8
+icon = ExtResource( 11 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="player 2 faction label" type="Label" parent="selection parent/team 2 select parent"]
+margin_left = 72.0
+margin_top = 32.0
+margin_right = 312.0
+margin_bottom = 46.0
+text = "World Eaters Chaos Space Marines"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
