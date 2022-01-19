@@ -20,27 +20,51 @@ func _bindButton(path: NodePath, functionName):
 	get_node(path).connect("pressed", self, functionName)
 
 func _mapSelectLeftPressed():
-	SKIRMISHCUSTODIAN.mapSelectionIndex = max(SKIRMISHCUSTODIAN.mapSelectionIndex - 1, 0) 
+	SKIRMISHCUSTODIAN.mapSelectionIndex = SKIRMISHCUSTODIAN.mapSelectionIndex - 1
+	
+	if SKIRMISHCUSTODIAN.mapSelectionIndex < 0:
+		SKIRMISHCUSTODIAN.mapSelectionIndex = MAPCUSTODIAN.masterMapArray.size() - 1
+		
 	_setMapLabelText()
 	
 func _mapSelectRightPressed():
-	SKIRMISHCUSTODIAN.mapSelectionIndex = min(SKIRMISHCUSTODIAN.mapSelectionIndex + 1, MAPCUSTODIAN.masterMapArray.size() - 1) 
+	SKIRMISHCUSTODIAN.mapSelectionIndex = SKIRMISHCUSTODIAN.mapSelectionIndex + 1
+	
+	if SKIRMISHCUSTODIAN.mapSelectionIndex > MAPCUSTODIAN.masterMapArray.size() - 1:
+		SKIRMISHCUSTODIAN.mapSelectionIndex = 0
+	
 	_setMapLabelText()
 
 func _player1FactionLeftPressed():
-	SKIRMISHCUSTODIAN.player1FactionIndex = max(SKIRMISHCUSTODIAN.player1FactionIndex - 1, 0) 
+	SKIRMISHCUSTODIAN.player1FactionIndex = SKIRMISHCUSTODIAN.player1FactionIndex - 1
+	
+	if SKIRMISHCUSTODIAN.player1FactionIndex < 0:
+		SKIRMISHCUSTODIAN.player1FactionIndex = FACTIONCUSTODIAN.factionArray.size() - 1
+		
 	_setPlayer1FactionText()
 	
 func _player2FactionLeftPressed():
-	SKIRMISHCUSTODIAN.player2FactionIndex = max(SKIRMISHCUSTODIAN.player2FactionIndex - 1, 0) 
+	SKIRMISHCUSTODIAN.player2FactionIndex = SKIRMISHCUSTODIAN.player2FactionIndex - 1
+	
+	if SKIRMISHCUSTODIAN.player2FactionIndex < 0:
+		SKIRMISHCUSTODIAN.player2FactionIndex = FACTIONCUSTODIAN.factionArray.size() - 1
+	
 	_setPlayer2FactionText()
 	
 func _player1FactionRightPressed():
-	SKIRMISHCUSTODIAN.player1FactionIndex = min(SKIRMISHCUSTODIAN.player1FactionIndex + 1, FACTIONCUSTODIAN.factionArray.size() - 1) 
+	SKIRMISHCUSTODIAN.player1FactionIndex = SKIRMISHCUSTODIAN.player1FactionIndex + 1
+	
+	if SKIRMISHCUSTODIAN.player1FactionIndex > FACTIONCUSTODIAN.factionArray.size() - 1:
+		SKIRMISHCUSTODIAN.player1FactionIndex = 0
+	 
 	_setPlayer1FactionText()
 	
 func _player2FactionRightPressed():
-	SKIRMISHCUSTODIAN.player2FactionIndex = min(SKIRMISHCUSTODIAN.player2FactionIndex + 1, FACTIONCUSTODIAN.factionArray.size() - 1) 
+	SKIRMISHCUSTODIAN.player2FactionIndex = SKIRMISHCUSTODIAN.player2FactionIndex + 1
+	
+	if SKIRMISHCUSTODIAN.player2FactionIndex > FACTIONCUSTODIAN.factionArray.size() - 1:
+		SKIRMISHCUSTODIAN.player2FactionIndex = 0
+		
 	_setPlayer2FactionText()
 	
 func _setMapLabelText():
