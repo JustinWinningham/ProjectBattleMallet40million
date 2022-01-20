@@ -2,13 +2,20 @@
 class_name Map
 
 var mapPath
-var terrainData = []
+# mapData
 var mapName
 var mapAuthor
+var tileSet
+# terrainData
 var mapSizeX
 var mapSizeY
-var tileSet
+var terrainData = []
+# setupData
+var startingUnitsP1 = []
+var startingUnitsP2 = []
+
 var mapDataDict = {}
+var setupDataDict = {}
 
 func _init(path):
 	self.mapPath = path
@@ -23,8 +30,9 @@ func _init(path):
 	
 	file.open(path + "/terrainData.csv", file.READ)
 	var text = file.get_as_text()
+	file.close()
 	var newtext = text.replace(',','')
-	var row= []
+	var row = []
 	for c in newtext:
 		if c != '\n':
 			row.append(c)
@@ -34,3 +42,20 @@ func _init(path):
 	self.mapSizeX = terrainData.size()
 	self.mapSizeY = terrainData[1].size()
 	
+	file.open(path + "/setupData.json", file.READ)
+	self.setupDataDict = GLOBAL.parseJSON(file)
+	file.close()
+	
+	#print_debug(setupDataDict)
+	#print_debug(mapName)
+	#print_debug(setupDataDict["OffsetUnitStartPositionTeamA"][0]["unitId"])
+	#print_debug(setupDataDict["OffsetUnitStartPositionTeamB"])
+	for g in setupDataDict["OffsetUnitStartPositionTeamA"].size():
+		startingUnitsP1.append(setupDataDict["OffsetUnitStartPositionTeamA"][g])
+	for u in setupDataDict["OffsetUnitStartPositionTeamB"].size():
+		startingUnitsP2.append(setupDataDict["OffsetUnitStartPositionTeamB"][u])
+	
+	#print_debug("p1Units")
+	#print_debug(p1Unit)
+	#print_debug("p2Units")
+	#print_debug(p2Unit)

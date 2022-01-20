@@ -1,0 +1,10 @@
+{
+  "OffsetUnitStartPositionTeamA":[
+  {"unitId":1, "xpos": 2, "ypos": 3},
+  {"unitId":1, "xpos": 3, "ypos": 4}
+],
+  "OffsetUnitStartPositionTeamB":[
+  {"unitId":1, "xpos": 1, "ypos": 4},
+  {"unitId":1, "xpos": 1, "ypos": 5}
+]
+}

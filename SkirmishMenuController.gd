@@ -24,6 +24,8 @@ func _mapSelectLeftPressed():
 	
 	if SKIRMISHCUSTODIAN.mapSelectionIndex < 0:
 		SKIRMISHCUSTODIAN.mapSelectionIndex = MAPCUSTODIAN.masterMapArray.size() - 1
+	
+	MAPCUSTODIAN.setCurrentMap(SKIRMISHCUSTODIAN.mapSelectionIndex)
 		
 	_setMapLabelText()
 	
@@ -32,6 +34,8 @@ func _mapSelectRightPressed():
 	
 	if SKIRMISHCUSTODIAN.mapSelectionIndex > MAPCUSTODIAN.masterMapArray.size() - 1:
 		SKIRMISHCUSTODIAN.mapSelectionIndex = 0
+	
+	MAPCUSTODIAN.setCurrentMap(SKIRMISHCUSTODIAN.mapSelectionIndex)
 	
 	_setMapLabelText()
 
@@ -48,7 +52,7 @@ func _player2FactionLeftPressed():
 	
 	if SKIRMISHCUSTODIAN.player2FactionIndex < 0:
 		SKIRMISHCUSTODIAN.player2FactionIndex = FACTIONCUSTODIAN.factionArray.size() - 1
-	
+		
 	_setPlayer2FactionText()
 	
 func _player1FactionRightPressed():
@@ -56,7 +60,7 @@ func _player1FactionRightPressed():
 	
 	if SKIRMISHCUSTODIAN.player1FactionIndex > FACTIONCUSTODIAN.factionArray.size() - 1:
 		SKIRMISHCUSTODIAN.player1FactionIndex = 0
-	 
+		
 	_setPlayer1FactionText()
 	
 func _player2FactionRightPressed():
