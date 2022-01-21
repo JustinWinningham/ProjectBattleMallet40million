@@ -46,16 +46,7 @@ func _init(path):
 	self.setupDataDict = GLOBAL.parseJSON(file)
 	file.close()
 	
-	#print_debug(setupDataDict)
-	#print_debug(mapName)
-	#print_debug(setupDataDict["OffsetUnitStartPositionTeamA"][0]["unitId"])
-	#print_debug(setupDataDict["OffsetUnitStartPositionTeamB"])
 	for g in setupDataDict["OffsetUnitStartPositionTeamA"].size():
 		startingUnitsP1.append(setupDataDict["OffsetUnitStartPositionTeamA"][g])
 	for u in setupDataDict["OffsetUnitStartPositionTeamB"].size():
 		startingUnitsP2.append(setupDataDict["OffsetUnitStartPositionTeamB"][u])
-	
-	#print_debug("p1Units")
-	#print_debug(p1Unit)
-	#print_debug("p2Units")
-	#print_debug(p2Unit)
