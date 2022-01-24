@@ -26,15 +26,15 @@ func validateAndLoadMaps():
 	for d in mapPathArray:
 		var mapDataPath = mapsPath + d + '/mapData.json'
 		var terrainDataPath = mapsPath + d + '/terrainData.csv'
-		var unitDataPath = mapsPath + d + '/unitData.json'
+		var setupDataPath = mapsPath + d + '/setupData.json'
 		# Check for each of the required files per map - ensure they exist
 		print_debug("Checking map: " + d)
 		if not fileChecker.file_exists(mapDataPath):
 			return ("Unable to find " + mapDataPath)
 		if not fileChecker.file_exists(terrainDataPath):
 			return ("Unable to find " + terrainDataPath)
-		if not fileChecker.file_exists(unitDataPath):
-			return ("Unable to find " + unitDataPath)
+		if not fileChecker.file_exists(setupDataPath):
+			return ("Unable to find " + setupDataPath)
 		#fileChecker.open(mapDataPath)
 		var errors = validateMapData(mapDataPath)
 		if errors != '0':
@@ -46,7 +46,7 @@ func validateAndLoadMaps():
 			print_debug("validateTerrainData error" + str(errors))
 			return errors
 			
-		errors = validateUnitData(unitDataPath)
+		errors = validateSetupData(setupDataPath)
 		
 		# At this point we have validated all of the data within the files
 		# So we can officially load the map into the master map array for use
@@ -61,6 +61,9 @@ func validateAndLoadMaps():
 	# descriptive codes or Error object instances
 	return '0' 
 
+func setCurrentMap(idx):
+	_curMapIdx = idx
+	
 # TODO: Actually validate the data - we are just pretending right now and dealing with the crash
 func validateMapData(filepath):
 	return '0'
@@ -68,5 +71,5 @@ func validateMapData(filepath):
 func validateTerrainData(filepath):
 	return '0'
 
-func validateUnitData(filepath):
+func validateSetupData(filepath):
 	return '0'
