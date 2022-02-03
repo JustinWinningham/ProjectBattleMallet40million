@@ -24,7 +24,7 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://Scripts/Objects/Map.gd"
 }, {
-"base": "Reference",
+"base": "Node",
 "class": "Unit",
 "language": "GDScript",
 "path": "res://Scripts/Objects/Unit.gd"

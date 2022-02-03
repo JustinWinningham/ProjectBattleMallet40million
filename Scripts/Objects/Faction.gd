@@ -47,12 +47,12 @@ func isValid():
 
 # TODO
 func _validateAndLoadPowers(path):
-	var fileChecker = File.new()
+	#var fileChecker = File.new()
 	return 0
 
 # TODO
 func _validateAndLoadAbilities(path):
-	var fileChecker = File.new()
+	#var fileChecker = File.new()
 	return 0
 
 
