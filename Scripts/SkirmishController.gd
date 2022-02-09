@@ -5,7 +5,6 @@ var unitLayer = []
 
 func _ready():
 	var mapPointer = MAPCUSTODIAN.masterMapArray[MAPCUSTODIAN._curMapIdx]
-	#unitLayer.resize(MAPCUSTODIAN.masterMapArray[curmapidx].mapSizeX)
 	unitLayer.resize(mapPointer.mapSizeX)
 	for x in unitLayer.size():
 		for y in unitLayer.size():
@@ -19,20 +18,11 @@ func _ready():
 	for x in mapPointer.startingUnitsP1.size():
 		var xpos = mapPointer.startingUnitsP1[x]["xpos"]
 		var ypos = mapPointer.startingUnitsP1[x]["ypos"]
-		unitLayer[mapPointer.startingUnitsP1[x]["xpos"]][mapPointer.startingUnitsP1[x]["ypos"]] = GLOBAL.getUnitFromId(mapPointer.startingUnitsP1[x]["unitId"])
-		drawUnit(unitLayer[mapPointer.startingUnitsP1[x]["xpos"]][mapPointer.startingUnitsP1[x]["ypos"]], xpos, ypos)
+		unitLayer[mapPointer.startingUnitsP1[x]["xpos"]][mapPointer.startingUnitsP1[x]["ypos"]] = spawnUnit(GLOBAL.getUnitMetaDataFromId(mapPointer.startingUnitsP1[x]["unitId"]), xpos, ypos)
 
-
-func drawUnit(unit: Unit, xpos: int, ypos: int):
-	var newSprite = Sprite.new()
-	var nameplate = Label.new()
-	var theNode = Node2D.new()
-	newSprite.texture = unit.defaultIconPath
-	theNode.add_child(newSprite)
-	nameplate.text = unit.unitName
-	theNode.add_child(nameplate)
-	theNode.position = Vector2(xpos * 128 + 32, ypos * 128 + 32)
-	theNode.add_child(unit)
-	unit.state = 0
-	$UnitHolder.add_child(theNode)
-	
+# We will have to redo the vector position placement eventually to account for different screen sizes, but it works for now
+func spawnUnit(metaData: UnitMetaData, xpos: int, ypos: int):
+	var theUnit = Unit.new(metaData)
+	theUnit.position = Vector2(xpos * 128 + 32, ypos * 128 + 32)
+	$UnitHolder.add_child(theUnit)
+	return theUnit

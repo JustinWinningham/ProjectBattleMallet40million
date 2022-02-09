@@ -63,7 +63,7 @@ func _validateAndLoadHeros(path):
 	GLOBAL.reloadDirectoryFolders(path, herosPathArray)
 	for h in herosPathArray:
 		# Inside individual hero folder
-		var newHero = Hero.new(path + h)
+		var newHero = UnitMetaData.new(path + h)
 		if newHero.isValid(): self.heroRoster.push_back(newHero)
 	return 0
 
@@ -75,7 +75,7 @@ func _validateAndLoadUnits(path):
 	GLOBAL.reloadDirectoryFolders(path, unitsPathArray)
 	for u in unitsPathArray:
 		# Inside individual unit folder
-		var newUnit = Unit.new(path + u)
+		var newUnit = UnitMetaData.new(path + u)
 		if newUnit.isValid(): self.unitRoster.push_back(newUnit)
 		
 	return 0
