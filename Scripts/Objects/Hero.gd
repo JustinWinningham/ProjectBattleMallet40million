@@ -3,7 +3,8 @@ extends Unit
 
 var testing
 
-func _init(path).(path):
+# TODO: This init is broken, unsure why. not going to deal with it yet
+func _init():
 	print_debug("Created a Hero!")
 	pass
 

@@ -1,22 +1,15 @@
 # This is a class object script for Units - generally contained within a Faction object
 class_name Unit
+extends Node2D
 
 var id
-var name
-var author = ""
-var description = ""
-var unitDataDict = {}
-# TODO: May be better to store this as a bunch of booleans for efficency so we dont have to
-# search and entire array multiple times per interaction between two units to interaction checking
-# and damage calculation
-var unitTags = [] # Fill with Enums (Infantry, Armor, Transport, Aircraft, Hero, etc)
-var validWeapons = []
-var validEquipment = []
-var validOthers = []
+var unitName
 
-var defaultWeapons = []
-var defaultEquipment = []
-var defaultOthers = []
+var unitTags = [] # Fill with Enums (Infantry, Armor, Transport, Aircraft, Hero, etc)
+
+var weapon
+var equipment
+var otherequip
 
 var abilities = []
 var magics = []
@@ -25,10 +18,15 @@ var cost = 0
 var defense = 1
 var offense = 1
 var speed = 1
-# TODO: Think about how we want store stats at the data layer
-# need second pass on design to be more exact
+
+var state = 0 #0 = disabled, 1 = can move and attack, 2 = can attack, not move, 3 = can attack, not move
 
 # Map animation frame data
+var defaultIconPath = load("res://Art/icon.png")
+var body = Sprite.new()
+var nametag = Label.new()
+
+
 var idleFrames = []
 var sideWalkFrames = []
 var upWalkFrames = []
@@ -36,28 +34,28 @@ var downWalkFrames = []
 
 var isValid = true
 
-
-
-func _init(path):
-	var file = File.new()
-	file.open(path + "/unitData.json", file.READ)
-	self.unitDataDict = GLOBAL.parseJSON(file)
-	file.close()
-	self.id = unitDataDict["unitName"]
-	self.name = unitDataDict["unitId"]
-	self.author = unitDataDict["author"]
-	self.description = unitDataDict["description"]
-	self.unitTags = unitDataDict["tags"]
+func _init(metaData: UnitMetaData):
+	self.add_child(body)
+	self.add_child(nametag)
+	self.id = metaData.id
+	self.unitName = metaData.unitName
+	self.unitTags = metaData.unitTags
 	
-	self.cost = unitDataDict["cost"]
-	self.speed = unitDataDict["speed"]
-	
-	# TEMP FOR TESTING
-	self.offense = 1
-	self.defense = 2
-	
-	print_debug("created a regular unit!")
-	print_debug(path)
+	self.cost = metaData.cost
+	self.offense = metaData.offense
+	self.speed = metaData.speed
+	body.texture = defaultIconPath
+	nametag.text = unitName
 
 func isValid():
 	return self.isValid
+
+func copyFrom(other: Unit):
+	self.id = other.unitDataDict["unitId"]
+	self.unitName = other.unitDataDict["unitName"]
+	self.description = other.unitDataDict["description"]
+	self.unitTags = other.unitDataDict["tags"]
+	
+	self.cost = other.unitDataDict["cost"]
+	self.speed = other.unitDataDict["speed"]
+	return self

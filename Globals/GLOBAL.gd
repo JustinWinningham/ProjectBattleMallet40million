@@ -64,3 +64,18 @@ func reloadDirectoryFiles(path, destinationArray):
 	else:
 		print_debug("Unable to open desired directory: " + path)
 		return !OK
+
+# From the ID present within the map file, find the appropriate unitmetadata, return said metadata object
+func getUnitMetaDataFromId(id):
+	var metaData = null
+	for m in FACTIONCUSTODIAN.factionArray.size():
+		for n in FACTIONCUSTODIAN.factionArray[m].unitRoster.size():
+			if id == FACTIONCUSTODIAN.factionArray[m].unitRoster[n].id:
+				print_debug("found it!")
+				var unitTemplate = FACTIONCUSTODIAN.factionArray[m].unitRoster[n]
+				metaData = FACTIONCUSTODIAN.factionArray[m].unitRoster[n]
+				# Now create the unit
+				# Problem, how do we create the unit without having to open the path file?
+				# We are already storing all this stuff in data
+				break
+	return metaData
